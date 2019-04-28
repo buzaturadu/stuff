@@ -1,0 +1,1 @@
+sudo virt-install --name bionicubuntu --ram 2048 --disk path=./iso/bionic-server-cloudimg-amd64.img --vcpus 1 --os-type linux --os-variant generic --network bridge=virbr0 --graphics vnc --console pty,target_type=serial --boot hd
