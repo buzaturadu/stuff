@@ -1,0 +1,1 @@
+virt-install --name compute1 --memory 2048 --vcpus 1 --disk path=/home/vmdisks/compute1.qcow2,size=10 --network bridge=virbr0 --networkbridge=virbr1 --graphics vnc,listen=0.0.0.0 --pxe --noautoconsole --boot network
