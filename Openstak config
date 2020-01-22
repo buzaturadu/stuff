@@ -1,0 +1,188 @@
+asuming your user is john
+
+
+# Install OS Ubuntu 18.04
+
+sudo apt update && apt upgrade
+
+# configure network (chose these or use your ip's)
+# 2 network adaptes should be UP
+
+#go root
+sudo su -
+
+#edit file with configuration below
+vim /etc/netplan/50-cloud-init.yaml
+
+
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eno1:
+      dhcp4: no
+    eno2:
+      dhcp4: no
+  bridges:
+    br0:
+      addresses: [ 10.10.1.126/24 ]
+      gateway4: 10.10.1.1
+      nameservers:
+        addresses: [8.8.8.8, 8.8.4.4]
+      interfaces:
+        - eno1
+    br1:
+      addresses: [ 192.168.1.50/24 ]
+      nameservers:
+        addresses: [8.8.8.8, 8.8.4.4]
+      interfaces:
+        - eno2
+
+netplan apply
+
+#enable ip forwarding
+
+echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf
+systemctl -p
+
+
+#create iptables config rc.local
+
+vim  /etc/rc.local
+
+#!/bin/sh -e
+/sbin/iptables -t nat -A POSTROUTING -o br0 -j MASQUERADE
+/sbin/iptables -A FORWARD -i br0 -o br1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+/sbin/iptables -A FORWARD -i br1 -o br0 -j ACCEPT
+exit 0
+
+chmod +x rc.local
+
+./rc.local
+
+#check iptables config
+
+iptables -vnL
+
+#Instal KVM
+sudo apt-get install qemu-kvm libvirt-bin virtinst bridge-utils cpu-checker
+
+virsh net-list
+virsh net-destroy default
+virsh undefine default
+
+
+PATH1
+
+
+#download ubuntu img
+cd /var/lib/libvirt/images/
+wget https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img
+
+#customize image with username si password
+
+virt-customize -a /var/lib/libvirt/images/bionic-server-cloudimg-amd64.img -v --install cloud-init --mkdir /root/maas --root-password password:<your_password> -x
+
+#install and convert ubuntu.img to qcow2
+ 
+apt install libguestfs-tools
+ 
+qemu-img convert -O qcow2 bionic-server-cloudimg-amd64.img bionic-server-cloudimg-amd64.qcow2
+
+
+mv bionic-server-cloudimg-amd64.qcow2 home/john/vmdisk/maas.qcow2
+
+#create VM for MAAS
+
+virt-install --name maas --memory 8048 --vcpus 1 --disk path=/home/john/vmdisk/maas.qcow2,size=50 --network bridge=br0 --network bridge=br1 --graphics vnc,listen=0.0.0.0 --pxe --console pty,target_type=serial
+
+#resize maas.qcow image to 40G
+
+qemu-img resize maas.qcow2 +40G
+
+#check VM maas ip with mac corelation
+
+virsh domiflist maas & arp -n
+
+#connect to maas with VNC
+
+#configuring maas 
+
+sudo apt update && apt upgrade
+
+#config networks
+
+vim /etc/netplan/50.yaml
+
+network:
+  ethernets:
+    ens3:
+      addresses: [ 10.10.1.128/24 ]
+      gateway4: 10.10.1.1 
+      nameservers:
+        addresses: [8.8.8.8, 8.8.4.4]     
+    ens4:        
+      addresses: [ 192.168.1.51/24 ] 
+
+
+netplan apply
+
+#config ssh-server
+
+dpkg-reconfigure openssh-server
+
+#install MAAS latest version or change to chose LTS
+
+
+sudo apt-get dist-upgrade
+sudo apt-get install openssh-server vlan
+sudo add-apt-repository ppa:maas/stable -y
+sudo apt-get update
+
+sudo growpart /dev/sda 1 
+sudo resize2fs /dev/sda1
+
+sudo reboot
+
+sudo apt-get install maas maas-dns maas-dhcp maas-proxy -y
+
+#setap maas-rack-controller with http://192.168.1.51:5240/MAAS
+
+sudo dpkg-reconfigure maas-rack-controller
+
+http://192.168.1.51:5240/MAAS
+
+##setap maas-region-controller ith 10.10.1.128
+
+sudo dpkg-reconfigure maas-region-controller
+
+10.10.1.128
+
+#install libvirt
+
+sudo apt -y install libvirt-bin
+
+#create maas user
+
+sudo mkdir -p /home/maas
+sudo chown maas:maas /home/maas
+sudo chsh -s /bin/bash maas
+sudo -u maas ssh-keygen
+sudo -u maas -i ssh-copy-id matrix@10.10.1.126
+
+
+#check connection with KVM on server(it should list VM's)
+
+sudo -u maas virsh -c qemu+ssh://john@10.10.1.126/system list --all
+
+
+
+
+
+
+
+
+
+
+
+
