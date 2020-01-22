@@ -1,7 +1,7 @@
 asuming your user is john and your password is passwordid
 
 
-# Install OS Ubuntu 18.04
+# Install OS Ubuntu 18.04 on your server
 
 sudo apt update && apt upgrade
 
