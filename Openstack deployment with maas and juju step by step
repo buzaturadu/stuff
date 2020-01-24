@@ -193,32 +193,54 @@ sudo -u maas -i ssh-copy-id john@10.10.1.126
 
 #check connection with KVM on server(it should list VM's)
 
-sudo -u maas virsh -c qemu+ssh://john@10.10.1.126/system list --all
+sudo -u maas virsh -c qemu+ssh://john@10.10.1.126/system list --all  #ip of your server
 
+#Install Juju client on server
 
+sudo add-apt-repository -u ppa:juju/stable
+sudo apt install juju
 
-#Deploy juju in LXD container
-#create lxd container for juju
+#create VM for Juju controller
 
-lxd init
+virt-install --name juju2 --memory 4048 --vcpus 1 --disk path=/home/matrix/vmdisk/juju2.qcow2,size=50 --network bridge=br1 --graphics vnc,listen=0.0.0.0 --pxe --noautoconsole --boot networ
 
-#Would you like to use LXD clustering? (yes/no) [default=no]: 
-#Do you want to configure a new storage pool? (yes/no) [default=yes]: 
-#Name of the new storage pool [default=default]: zfs
-#Name of the storage backend to use (btrfs, dir, lvm, zfs) [default=zfs]: 
-#Create a new ZFS pool? (yes/no) [default=yes]: 
-#Would you like to use an existing block device? (yes/no) [default=no]: 
-#Size in GB of the new loop device (1GB minimum) [default=15GB]: 
-#Would you like to connect to a MAAS server? (yes/no) [default=no]: 
-#Would you like to create a new local network bridge? (yes/no) [default=yes]: no
-#Would you like to configure LXD to use an existing bridge or host interface? (yes/no) [default=no]: yes
-#Name of the existing bridge or host interface: ens160
-#Would you like LXD to be available over the network? (yes/no) [default=no]: 
-#Would you like stale cached images to be updated automatically? (yes/no) [default=yes] 
-#Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: 
+#Go to http://192.168.1.51:5240/MAAS/machines and commistion the machine found by maas, rename it juju.maas and put tag to juju
 
+#Adding in juju a mass cloud with .yaml file
 
-sudo juju bootstrap localhost lxd-local
+vim maas-cloud.yaml
+
+#insert next configuration but first copy your maas-oauth api key from maas web interface 
+
+clouds:
+  maas-cloud:
+    type: maas
+    auth-types: [oauth1]
+    endpoint: http://10.10.1.128:5240/MAAS #maas ip
+
+credentials:
+  maas-cloud:
+    admin:
+      auth-type: oauth1
+      maas-oauth: XCGqbTMaUgFPmGZmzK:qDVn4Zmc5PV5qfguFJ:6Q45keyuCSzwcrZzAFJtv435cRpLgcxQ     #change with your api key
+      
+      
+#add cloud controller config
+
+juju add-cloud maas-cloud maas-cloud.yaml
+
+#add maas-cloud credentials
+
+juju add-credential maas-cloud -f maas-cloud.yaml
+
+#Bootstrap juju controler on juju VM
+
+juju bootstrap --constraints tags=juju maas-cloud maas-controller
+
+#Create the model
+
+juju add-model openstack
+
 
 
 
