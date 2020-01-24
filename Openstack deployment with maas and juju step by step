@@ -1,3 +1,8 @@
+#UNDER CONSTRUCTION...... 
+
+Loading   ]]]]]]]]]43%_______________
+
+
 asuming your user is john and your password is passwordid
 
 
@@ -6,7 +11,6 @@ asuming your user is john and your password is passwordid
 sudo apt update && apt upgrade
 
 # configure network (chose these or use your ip's)
-# 2 network adaptes should be UP
 
 #go root
 sudo su -
@@ -19,10 +23,9 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    eno1:
+    eno0:
       dhcp4: no
-    eno2:
-      dhcp4: no
+      
   bridges:
     br0:
       addresses: [ 10.10.1.126/24 ]
@@ -35,8 +38,7 @@ network:
       addresses: [ 192.168.1.50/24 ]
       nameservers:
         addresses: [8.8.8.8, 8.8.4.4]
-      interfaces:
-        - eno2
+        
 
 netplan apply
 
@@ -110,7 +112,7 @@ virsh domiflist maas & arp -n
 
 sudo apt update && apt upgrade
 
-#config networks
+#config networks on maas VM
 
 vim /etc/netplan/50.yaml
 
@@ -140,7 +142,6 @@ exit
 ssh-keygen
 
 #leave blank when asked for options
-
 #copy ssh key to MAAS vm
 
 ssh-copy-id root@10.10.1.128
@@ -176,7 +177,7 @@ sudo dpkg-reconfigure maas-region-controller
 
 10.10.1.128
 
-#install libvirt
+#install libvirt on maas 
 
 sudo apt -y install libvirt-bin
 
@@ -199,23 +200,25 @@ sudo -u maas virsh -c qemu+ssh://john@10.10.1.126/system list --all
 #Deploy juju in LXD container
 #create lxd container for juju
 
-Would you like to use LXD clustering? (yes/no) [default=no]: 
-Do you want to configure a new storage pool? (yes/no) [default=yes]: 
-Name of the new storage pool [default=default]: zfs1
-Name of the storage backend to use (btrfs, dir, lvm, zfs) [default=zfs]: 
-Create a new ZFS pool? (yes/no) [default=yes]: 
-Would you like to use an existing block device? (yes/no) [default=no]: 
-Size in GB of the new loop device (1GB minimum) [default=15GB]: 
-Would you like to connect to a MAAS server? (yes/no) [default=no]: 
-Would you like to create a new local network bridge? (yes/no) [default=yes]: no
-Would you like to configure LXD to use an existing bridge or host interface? (yes/no) [default=no]: yes
-Name of the existing bridge or host interface: ens160
-Would you like LXD to be available over the network? (yes/no) [default=no]: 
-Would you like stale cached images to be updated automatically? (yes/no) [default=yes] 
-Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: 
+lxd init
+
+#Would you like to use LXD clustering? (yes/no) [default=no]: 
+#Do you want to configure a new storage pool? (yes/no) [default=yes]: 
+#Name of the new storage pool [default=default]: zfs
+#Name of the storage backend to use (btrfs, dir, lvm, zfs) [default=zfs]: 
+#Create a new ZFS pool? (yes/no) [default=yes]: 
+#Would you like to use an existing block device? (yes/no) [default=no]: 
+#Size in GB of the new loop device (1GB minimum) [default=15GB]: 
+#Would you like to connect to a MAAS server? (yes/no) [default=no]: 
+#Would you like to create a new local network bridge? (yes/no) [default=yes]: no
+#Would you like to configure LXD to use an existing bridge or host interface? (yes/no) [default=no]: yes
+#Name of the existing bridge or host interface: ens160
+#Would you like LXD to be available over the network? (yes/no) [default=no]: 
+#Would you like stale cached images to be updated automatically? (yes/no) [default=yes] 
+#Would you like a YAML "lxd init" preseed to be printed? (yes/no) [default=no]: 
 
 
-
+sudo juju bootstrap localhost lxd-local
 
 
 
