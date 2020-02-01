@@ -1,0 +1,1 @@
+for i in `juju status | grep default | awk '{print $3}' | grep -v maas`; do ssh ubuntu@$i -t 'vim /etc/hosts'; done
