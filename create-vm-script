@@ -1,0 +1,47 @@
+#!/usr/bin/bash
+
+
+set -x
+NAME=$1
+if [ -z "$NAME" ]; then
+    echo "Please specify a VM name"
+    exit 1
+fi
+echo "VM name is $NAME"
+RAM=1024
+VCPU=1
+DISK_SIZE=33
+NETWORK="default"
+
+VMBASE="/vms"
+IMAGES="$VMBASE/images"
+
+CPU_OPTS="--cpu host"
+GRAPHICS_OPTS="--graphics none --console pty,target_type=serial"
+CONTROLLER_OPTS="--controller scsi,model=virtio-scsi,index=0"
+MISC_OPTS="--noautoconsole --check path_in_use=no"
+BOOT_OPTS="--boot cdrom,hd,network,menu=on"
+RESOURCES_OPTS="--ram $RAM --vcpus=$VCPU"
+NETWORK_OPTS="--network=network=$NETWORK,model=virtio"
+
+ROOT_DISK="--disk pool=storage-pool,size=$DISK_SIZE,format=qcow2,bus=scsi,cache=writeback"
+BASE_IMAGE="$VMBASE/images/rhel-guest-image-7.3-35.x86_64-custom.qcow2"
+
+INSTALLER_IMAGE="CentOS-7-x86_64-DVD.iso"
+INSTALLER_DISK="--location $IMAGES/$INSTALLER_IMAGE"
+KS_FILE_LOCATION="$IMAGES/ks.cfg"
+KS_DISK="--initrd-inject $KS_FILE_LOCATION"
+
+EXTRA_ARGS="--extra-args \'console=tty0 console=ttyS0,115200n8 serial inst.ks=file:/ks2.cfg\'"
+echo "Creating VM with name: $NAME"
+echo virt-install $KS_DISK $INSTALLER_DISK $MISC_OPTS $BOOT_OPTS $GRAPHICS_OPTS $RESOURCES_OPTS $CPU_OPTS $CONTROLLER_OPTS $ROOT_DISK $NETWORK_OPTS --name=$NAME --extra-args 'console=tty0 console=ttyS0,115200n8  inst.ks=file:/ks2.cfg'  > $NAME
+
+# With KS file
+virt-install --name $name $resources --network network=default,model=virtio \
+--disk pool=storage-pool,size=10,bus=scsi,cache=writeback \
+--disk=path=/vms/images/ks-disk.img,bus=scsi,cache=writeback \
+--graphics none --console pty,target_type=serial \
+--location '/vms/images/CentOS-7-x86_64-DVD.iso' \
+--initrd-inject /vms/images/ks.cfg --noautoconsole \
+--extra-args 'console=tty0 console=ttyS0,115200n8 serial inst.ks=file:/ks.cfg'
+
