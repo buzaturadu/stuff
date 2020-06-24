@@ -1,0 +1,16 @@
+[DEFAULT]
+undercloud_hostname=undercloud.radu.test
+local_ip = 172.25.250.10/24
+network_gateway = 172.25.250.10
+local_interface = eth1
+network_cidr = 172.25.250.0/24
+masquerade_network = 172.25.250.0/24
+dhcp_start = 172.25.250.5
+dhcp_end = 172.25.250.25
+inspection_interface = br-ctlplane
+inspection_iprange = 172.25.250.100,172.25.250.150
+undercloud_debug = true
+enable_tempest = true
+enable_telemetry = false
+ipxe_enabled = true
+store_events = true
