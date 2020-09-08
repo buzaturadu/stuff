@@ -6,7 +6,7 @@ if true | openssl s_client -connect $p:443 2>/dev/null | openssl x509 -noout -ch
   :
 else
   echo $p "Certificate is expired"
-  exit 127
+  exit 1
 fi
 }
 
