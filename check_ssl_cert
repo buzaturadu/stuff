@@ -1,0 +1,15 @@
+#!/bin/bash
+
+function domain
+{
+if true | openssl s_client -connect $p:443 2>/dev/null | openssl x509 -noout -checkend 0 2>/dev/null; then
+  :
+else
+  echo $p "Certificate is expired"
+fi
+}
+
+filename='domains'
+while read p; do
+ domain | grep expired
+done < $filename
