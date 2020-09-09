@@ -1,2 +1,10 @@
-#!/bin/bach
+#! /bin/bash
 
+case "$(pidof sleep | wc -w)" in
+
+0)  echo "Restarting sleeper:     $(date)" >> ./sleeper.txt
+    /bin/sleep 10 &
+    ;;
+1)  #process is running
+    ;;
+esac
