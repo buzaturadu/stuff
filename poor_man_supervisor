@@ -3,6 +3,7 @@
 case "$(pidof sleep | wc -w)" in
 
 0)  echo "Restarting sleeper:     $(date)" >> ./sleeper.txt
+#you didint asked for logs but most of the times are helpful	
     /bin/sleep 10 &
     ;;
 1)  #process is running
