@@ -18,4 +18,4 @@ while read p; do
 done < $filename
 
 exit $ec
-
+#beta version (exit code not working properly) 
