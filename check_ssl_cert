@@ -4,18 +4,19 @@ ec=0
 
 function check_ssl
 {
-if true | openssl s_client -connect $p:443 2>/dev/null | openssl x509 -noout -checkend 0 2>/dev/null; then
-     :
+if true | openssl s_client -connect $p:443 2>/dev/null | openssl x509 -noout -checkend 0 &>/dev/null; then
+      :
 else
-        echo $p "has certificate expired"     
+        echo $p "has expired certificate"
         ec=1
 fi
 }
 
 filename="$1"
 while read p; do
-  check_ssl | grep expired
+  check_ssl
 done < $filename
 
 exit $ec
+
 
