@@ -18,5 +18,9 @@ while read p; do
 done < $filename
 
 exit $ec
+<<<<<<< HEAD
 
 
+=======
+#beta version (exit code not working properly) 
+>>>>>>> c9752e6e0b627f3ad8cd84ddcb1a034e1fa15284
