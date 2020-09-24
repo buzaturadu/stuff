@@ -41,7 +41,7 @@ In order to have good performance with the virtual router the VM should have eno
 
 VM can be created using:
 
-	sudo virt-install --name bionicubuntu --ram 2048 --disk path=./iso/bionic-server-cloudimg-amd64.img --vcpus 1 --os-type linux --os-variant generic --network bridge=virbr0 --graphics vnc --console pty,target_type=serial --boot hd
+	sudo virt-install --name bionicubuntu --ram 8048 --disk path=./iso/bionic-server-cloudimg-amd64.img --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --graphics vnc --console pty,target_type=serial --boot hd
 
 
 # Synchronization
@@ -158,6 +158,6 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg4Njg1MjQxOCw0NTg2MDUzNTEsLTEyOD
-U3Mjg2NDQsNDM4MDA1OTI0XX0=
+eyJoaXN0b3J5IjpbLTE2MDQxMzgxMywxODg2ODUyNDE4LDQ1OD
+YwNTM1MSwtMTI4NTcyODY0NCw0MzgwMDU5MjRdfQ==
 -->
