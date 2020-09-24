@@ -54,7 +54,7 @@ Using iso:
 
 # Installing pfSense
 
-First go to 
+First go to [pfsense](https://www.pfsense.org/download/) website and download the 
 
 There are two types of synchronization and they can complement each other:
 
@@ -166,7 +166,7 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzUyNjY5NDQsMTczNDA3MjA1MiwxMT
+eyJoaXN0b3J5IjpbLTIwODkzMDc1NzQsMTczNDA3MjA1MiwxMT
 E0MzgxMzc2LDE1MDkxODI0MTMsLTE2MDQxMzgxMywxODg2ODUy
 NDE4LDQ1ODYwNTM1MSwtMTI4NTcyODY0NCw0MzgwMDU5MjRdfQ
 ==
