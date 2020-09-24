@@ -26,9 +26,12 @@ Our machine is a Dell PowerEdge R420 with the following relevant specifications:
 
 There are various hypervisors capable of doing what we needed, like Proxmox, ovirt, KVM, Hyper-V, ESXi etc. We opted for KVM because it's stable, hardware is free. It has everything we need: network virtualization, good performance.
 
-## Dcucu
+## Networking
 
-You can delete the current file by clicking the **Remove** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity.
+Our ISP requires PPPoE authentication, and at each reconnect, our public IP changes. We needed a router for the VMs and for the office, but we first need to take care of the network virtualization part. We created networks, called VM Network, Management Network, and WAN. Might be a bit confusing, but each network has a purpose:
+- VM Network - this is the equivalent of LAN. All VMs will be connected to this network.
+- Management Network - all management interfaces will be connected to this network, like IDRAC, ILO, Access Points, Switch etc
+- WAN - our ISP
 
 ## Export a file
 
@@ -149,5 +152,6 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODU3Mjg2NDQsNDM4MDA1OTI0XX0=
+eyJoaXN0b3J5IjpbMTkyNDQwNzYwOSwtMTI4NTcyODY0NCw0Mz
+gwMDU5MjRdfQ==
 -->
