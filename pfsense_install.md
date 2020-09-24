@@ -37,6 +37,9 @@ Our ISP requires PPPoE authentication, and at each reconnect, our public IP chan
 
 In order to have good performance with the virtual router the VM should have enough resources. We chose next specs
 
+-
+
+VM can be created using:
 
 	sudo virt-install --name bionicubuntu --ram 2048 --disk path=./iso/bionic-server-cloudimg-amd64.img --vcpus 1 --os-type linux --os-variant generic --network bridge=virbr0 --graphics vnc --console pty,target_type=serial --boot hd
 
@@ -155,6 +158,6 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTQxMjM1MjMsNDU4NjA1MzUxLC0xMj
-g1NzI4NjQ0LDQzODAwNTkyNF19
+eyJoaXN0b3J5IjpbMTg4Njg1MjQxOCw0NTg2MDUzNTEsLTEyOD
+U3Mjg2NDQsNDM4MDA1OTI0XX0=
 -->
