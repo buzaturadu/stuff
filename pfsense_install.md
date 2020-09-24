@@ -54,7 +54,7 @@ Using iso:
 
 # Installing pfSense
 
-Synchronization is one of the biggest features of StackEdit. It enables you to synchronize any file in your workspace with other files stored in your **Google Drive**, your **Dropbox** and your **GitHub** accounts. This allows you to keep writing on other devices, collaborate with people you share the file with, integrate easily into your workflow... The synchronization mechanism takes place every minute in the background, downloading, merging, and uploading file modifications.
+First go to 
 
 There are two types of synchronization and they can complement each other:
 
@@ -166,7 +166,8 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3Mjk0MDgzOCwxNzM0MDcyMDUyLDExMT
-QzODEzNzYsMTUwOTE4MjQxMywtMTYwNDEzODEzLDE4ODY4NTI0
-MTgsNDU4NjA1MzUxLC0xMjg1NzI4NjQ0LDQzODAwNTkyNF19
+eyJoaXN0b3J5IjpbLTExNzUyNjY5NDQsMTczNDA3MjA1MiwxMT
+E0MzgxMzc2LDE1MDkxODI0MTMsLTE2MDQxMzgxMywxODg2ODUy
+NDE4LDQ1ODYwNTM1MSwtMTI4NTcyODY0NCw0MzgwMDU5MjRdfQ
+==
 -->
