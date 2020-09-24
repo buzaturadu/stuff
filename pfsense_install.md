@@ -52,7 +52,7 @@ Using iso:
 	sudo virt-install --name pfsense --ram 8048 --disk path=./vmdisks/pfsense.qcow2,size=20 --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --network bridge=virbr1 --network bridge=virbr2 --graphics vnc --console pty,target_type=serial --cdrom '/home/buz/iso/ubuntu-20.04-server-amd64.iso
 
 
-# Synchronization
+# Installing pfSense
 
 Synchronization is one of the biggest features of StackEdit. It enables you to synchronize any file in your workspace with other files stored in your **Google Drive**, your **Dropbox** and your **GitHub** accounts. This allows you to keep writing on other devices, collaborate with people you share the file with, integrate easily into your workflow... The synchronization mechanism takes place every minute in the background, downloading, merging, and uploading file modifications.
 
@@ -166,7 +166,7 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2MTc1NTY5MywxNzM0MDcyMDUyLDExMT
+eyJoaXN0b3J5IjpbMTE3Mjk0MDgzOCwxNzM0MDcyMDUyLDExMT
 QzODEzNzYsMTUwOTE4MjQxMywtMTYwNDEzODEzLDE4ODY4NTI0
 MTgsNDU4NjA1MzUxLC0xMjg1NzI4NjQ0LDQzODAwNTkyNF19
 -->
