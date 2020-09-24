@@ -41,7 +41,7 @@ In order to have good performance with the virtual router the VM should have eno
 - 8 GB RAM
 -  
 
-VM can be created using:
+VM can be created using img download 
 
 	sudo virt-install --name bionicubuntu --ram 8048 --disk path=./iso/bionic-server-cloudimg-amd64.img --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --graphics vnc --console pty,target_type=serial --boot hd
 
@@ -160,7 +160,7 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUwOTE4MjQxMywtMTYwNDEzODEzLDE4OD
-Y4NTI0MTgsNDU4NjA1MzUxLC0xMjg1NzI4NjQ0LDQzODAwNTky
-NF19
+eyJoaXN0b3J5IjpbMTExNDM4MTM3NiwxNTA5MTgyNDEzLC0xNj
+A0MTM4MTMsMTg4Njg1MjQxOCw0NTg2MDUzNTEsLTEyODU3Mjg2
+NDQsNDM4MDA1OTI0XX0=
 -->
