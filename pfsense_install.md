@@ -26,7 +26,7 @@ Our machine is a Dell PowerEdge R420 with the following relevant specifications:
 
 There are various hypervisors capable of doing what we needed, like Proxmox, ovirt, KVM, Hyper-V, ESXi etc. We opted for KVM because it's stable, hardware is free. It has everything we need: network virtualization, good performance.
 
-## Delete a file
+## Dcucu
 
 You can delete the current file by clicking the **Remove** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity.
 
@@ -149,5 +149,5 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDM4MDA1OTI0XX0=
+eyJoaXN0b3J5IjpbLTEyODU3Mjg2NDQsNDM4MDA1OTI0XX0=
 -->
