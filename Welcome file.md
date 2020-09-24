@@ -1,23 +1,30 @@
-# Welcome to StackEdit!
+# One-node infrastructure
 
-Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
+## One-node infrastructure
 
+Having a single, beefy server can be a problem sometimes. We needed a fleet of virtual servers for various applications and tests, and a router for all of them, but because this is a home setup, we only had a single physical machine for that. The only viable solution was to have a one-node infrastructure.
 
-# Files
+## The solution
 
-StackEdit stores your files in your browser, which means all your files are automatically saved locally and are accessible **offline!**
+We came up with a solution that uses various technologies from the virtualization world. A few
+key points must be met:
+- Server
+- Two or more physical NICs
+- Capable hypervisor
+ 
+## The server
 
-## Create files and folders
+Our machine is a Dell PowerEdge R420 with the following relevant specifications:
 
-The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the **New file** button in the file explorer. You can also create folders by clicking the **New folder** button.
+- 2x Intel Xeon E5-2420 1.9 Ghz, 8 cores
+- 8x 16GB ECC RAM
+- 2x 500GB SSD
+- 2x Gigabit NICs
+- 
 
-## Switch to another file
+## The hypervisor
 
-All your files and folders are presented as a tree in the file explorer. You can switch from one to another by clicking a file in the tree.
-
-## Rename a file
-
-You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.
+There are various hypervisors capable of doing what we needed, like Proxmox, ovirt, KVM, Hyper-V, ESXi etc. We opted for KVM because it's stable, hardware is free. It has everything we need: network virtualization, good performance.
 
 ## Delete a file
 
