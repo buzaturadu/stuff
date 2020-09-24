@@ -45,11 +45,11 @@ VM can be created using a downloaded img or Ubuntu can be installed from scratch
 
 Using img:
 
-	sudo virt-install --name pfsense --ram 8048 --disk path=./iso/bionic-server-cloudimg-amd64.img --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --graphics vnc --console pty,target_type=serial --boot hd
+	sudo virt-install --name pfsense --ram 8048 --disk path=./iso/bionic-server-cloudimg-amd64.img --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --network bridge=virbr1 --network bridge=virbr2 --graphics vnc --console pty,target_type=serial --boot hd
 
 Using iso:
 
-		virt-install --name pfsense --ram 8048 --disk path=./vmdisks/ubuntu18.qcow2,size=10 --vcpus 1 --os-type linux --os-variant generic --network bridge=virbr0 --graphics vnc --console pty,target_type=serial --cdrom '/home/buz/iso/ubuntu-16.04.6-server-amd64.iso
+	sudo virt-install --name pfsense --ram 8048 --disk path=./vmdisks/pfsense.qcow2,size=20 --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --network bridge=virbr1 --network bridge=virbr2 --graphics vnc --console pty,target_type=serial --cdrom '/home/buz/iso/ubuntu-20.04-server-amd64.iso
 
 
 # Synchronization
@@ -166,7 +166,7 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzY5ODU3OTU1LDE3MzQwNzIwNTIsMTExND
-M4MTM3NiwxNTA5MTgyNDEzLC0xNjA0MTM4MTMsMTg4Njg1MjQx
-OCw0NTg2MDUzNTEsLTEyODU3Mjg2NDQsNDM4MDA1OTI0XX0=
+eyJoaXN0b3J5IjpbMTk2MTc1NTY5MywxNzM0MDcyMDUyLDExMT
+QzODEzNzYsMTUwOTE4MjQxMywtMTYwNDEzODEzLDE4ODY4NTI0
+MTgsNDU4NjA1MzUxLC0xMjg1NzI4NjQ0LDQzODAwNTkyNF19
 -->
