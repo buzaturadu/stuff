@@ -37,7 +37,9 @@ Our ISP requires PPPoE authentication, and at each reconnect, our public IP chan
 
 In order to have good performance with the virtual router the VM should have enough resources. We chose next specs
 
--
+- 4 CPUs
+- 8 GB RAM
+-  
 
 VM can be created using:
 
@@ -158,6 +160,7 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MDQxMzgxMywxODg2ODUyNDE4LDQ1OD
-YwNTM1MSwtMTI4NTcyODY0NCw0MzgwMDU5MjRdfQ==
+eyJoaXN0b3J5IjpbMTUwOTE4MjQxMywtMTYwNDEzODEzLDE4OD
+Y4NTI0MTgsNDU4NjA1MzUxLC0xMjg1NzI4NjQ0LDQzODAwNTky
+NF19
 -->
