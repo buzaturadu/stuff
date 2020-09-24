@@ -24,7 +24,7 @@ Our machine is a Dell PowerEdge R420 with the following relevant specifications:
 
 ## The hypervisor
 
-There are various hypervisors capable of doing what we needed, like Proxmox, ovirt, KVM, Hyper-V, ESXi etc. We opted for KVM because it's stable, hardware is free. It has everything we need: network virtualization, good performance.
+There are various hypervisors capable of doing what we needed, like Proxmox, ovirt, KVM, Hyper-V, ESXi etc. We opted for KVM because it's stable and is free. It has everything we need: network virtualization, good performance.
 
 ## Networking
 
@@ -152,6 +152,6 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQzMzY1NTI3LC0xMjg1NzI4NjQ0LDQzOD
+eyJoaXN0b3J5IjpbMTMwNTE4OTYyLC0xMjg1NzI4NjQ0LDQzOD
 AwNTkyNF19
 -->
