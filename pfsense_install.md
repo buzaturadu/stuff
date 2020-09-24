@@ -35,7 +35,9 @@ Our ISP requires PPPoE authentication, and at each reconnect, our public IP chan
 
 ## VM specs for pfSense
 
-In order to have good performance with the virtual router  
+In order to have good performance with the virtual router the VM should have enough resources. We chose next specs
+
+-
 
 
 # Synchronization
@@ -152,6 +154,6 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2ODk1NTcwNywtMTI4NTcyODY0NCw0Mz
-gwMDU5MjRdfQ==
+eyJoaXN0b3J5IjpbNDU4NjA1MzUxLC0xMjg1NzI4NjQ0LDQzOD
+AwNTkyNF19
 -->
