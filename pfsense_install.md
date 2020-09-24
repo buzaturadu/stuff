@@ -24,7 +24,7 @@ Our machine is a Dell PowerEdge R420 with the following relevant specifications:
 
 ## The hypervisor
 
-There are various hypervisors capable of doing what we needed, like Proxmox, ovirt, KVM, Hyper-V, ESXi etc. We opted for KVM because it's stable and is free. It has everything we need: network virtualization, good performance.
+There are various hypervisors capable of doing what we needed, like Proxmox, ovirt, KVM, Hyper-V, ESXi etc. We opted for KVM because it's stable and it's free.
 
 ## Networking
 
@@ -35,7 +35,7 @@ Our ISP requires PPPoE authentication, and at each reconnect, our public IP chan
 
 ## VM specs for pfSense
 
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+In order to have good performance with the virtual router  
 
 
 # Synchronization
@@ -152,6 +152,6 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwNTE4OTYyLC0xMjg1NzI4NjQ0LDQzOD
-AwNTkyNF19
+eyJoaXN0b3J5IjpbMTU2ODk1NTcwNywtMTI4NTcyODY0NCw0Mz
+gwMDU5MjRdfQ==
 -->
