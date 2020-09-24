@@ -54,7 +54,7 @@ Using iso:
 
 # Installing pfSense
 
-First go to [pfsense](https://www.pfsense.org/download/) website and download the 
+First go to [pfsense](https://www.pfsense.org/download/) website and download the image from there.
 
 There are two types of synchronization and they can complement each other:
 
@@ -166,8 +166,7 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwODkzMDc1NzQsMTczNDA3MjA1MiwxMT
-E0MzgxMzc2LDE1MDkxODI0MTMsLTE2MDQxMzgxMywxODg2ODUy
-NDE4LDQ1ODYwNTM1MSwtMTI4NTcyODY0NCw0MzgwMDU5MjRdfQ
-==
+eyJoaXN0b3J5IjpbNzY1MjIzMDMxLDE3MzQwNzIwNTIsMTExND
+M4MTM3NiwxNTA5MTgyNDEzLC0xNjA0MTM4MTMsMTg4Njg1MjQx
+OCw0NTg2MDUzNTEsLTEyODU3Mjg2NDQsNDM4MDA1OTI0XX0=
 -->
