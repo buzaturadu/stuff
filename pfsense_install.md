@@ -33,7 +33,7 @@ Our ISP requires PPPoE authentication, and at each reconnect, our public IP chan
 - Management Network - all management interfaces will be connected to this network, like IDRAC, ILO, Access Points, Switch etc
 - WAN - our ISP
 
-## Export a file
+## VM speck for PFsense
 
 You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
 
@@ -152,6 +152,6 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyNDQwNzYwOSwtMTI4NTcyODY0NCw0Mz
-gwMDU5MjRdfQ==
+eyJoaXN0b3J5IjpbNDQwNzYyNzYsLTEyODU3Mjg2NDQsNDM4MD
+A1OTI0XX0=
 -->
