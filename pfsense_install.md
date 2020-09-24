@@ -24,7 +24,7 @@ Our machine is a Dell PowerEdge R420 with the following relevant specifications:
 
 ## The hypervisor
 
-There are various hypervisors capable of doing what we needed, like Proxmox, ovirt, KVM, Hyper-V, ESXi etc. We opted for KVM because it's stable and it's free.
+There are various hypervisors capable of doing what we needed, like Proxmox, ovirt, KVM, Hyper-V, ESXi etc. We opted for KVM on Ubuntu because it's stable and it's free.
 
 ## Networking
 
@@ -41,7 +41,7 @@ In order to have good performance with the virtual router the VM should have eno
 - 8 GB RAM
 -  
 
-VM can be created using img download 
+VM can be created using an image downloaded from  
 
 	sudo virt-install --name bionicubuntu --ram 8048 --disk path=./iso/bionic-server-cloudimg-amd64.img --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --graphics vnc --console pty,target_type=serial --boot hd
 
@@ -160,7 +160,7 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExNDM4MTM3NiwxNTA5MTgyNDEzLC0xNj
-A0MTM4MTMsMTg4Njg1MjQxOCw0NTg2MDUzNTEsLTEyODU3Mjg2
-NDQsNDM4MDA1OTI0XX0=
+eyJoaXN0b3J5IjpbMTczNDA3MjA1MiwxMTE0MzgxMzc2LDE1MD
+kxODI0MTMsLTE2MDQxMzgxMywxODg2ODUyNDE4LDQ1ODYwNTM1
+MSwtMTI4NTcyODY0NCw0MzgwMDU5MjRdfQ==
 -->
