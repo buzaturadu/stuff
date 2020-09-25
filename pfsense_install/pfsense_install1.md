@@ -63,13 +63,17 @@ First go to [pfsense](https://www.pfsense.org/download/) website and download th
 Boot the VM using pfSense installation iso
 
 On welcome screen hit Enter
+
 ![2](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/2.png?raw=true)
 
 Accept the End User License Agreement.
+
 ![3](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/3.png?raw=true)
 
 Select install
+
 ![4](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/4.png?raw=true)
+
 
 
 .
