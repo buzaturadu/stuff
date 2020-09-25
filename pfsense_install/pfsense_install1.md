@@ -47,17 +47,28 @@ Using img:
 
 	sudo virt-install --name pfsense --ram 8048 --disk path=./iso/bionic-server-cloudimg-amd64.img --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --network bridge=virbr1 --network bridge=virbr2 --graphics vnc --console pty,target_type=serial --boot hd
 
-Using iso:
+Using Ubuntu 20.04 iso:
 
 	sudo virt-install --name pfsense --ram 8048 --disk path=./vmdisks/pfsense.qcow2,size=20 --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --network bridge=virbr1 --network bridge=virbr2 --graphics vnc --console pty,target_type=serial --cdrom '/home/buz/iso/ubuntu-20.04-server-amd64.iso
 
 
 # Installing pfSense
 
-First go to [pfsense](https://www.pfsense.org/download/) website and download the image from there.
+First go to [pfsense](https://www.pfsense.org/download/) website and download the image from there and unzip ip
 
-![enter image description here](https://static.packt-cdn.com/products/9781789532975/graphics/3846fd1a-e6f5-4537-aa8f-18a1821401f9.png)
-.
+	unzip pfSense-CE-2.4.5-RELEASE-amd64.iso.gz
+
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/1.png?raw=true)
+
+Boot the VM using pfSense installation iso
+On welcome screen hit Enter
+![2](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/2.png?raw=true)
+Accept the End User License Agreement.
+![3](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/3.png?raw=true)
+Select install
+![4](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/4.png?raw=true)
+
+
 .
 .
 .
@@ -94,10 +105,3 @@ $$
 
 > You can find more information about **LaTeX** mathematical expressions [here](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxODE3ODI1MCwtMjM1NDA2NjE0LC0zNj
-U5NDk4MDcsLTExMTc5NjM3NTMsNzM1NjU4NTk2LDc2NTIyMzAz
-MSwxNzM0MDcyMDUyLDExMTQzODEzNzYsMTUwOTE4MjQxMywtMT
-YwNDEzODEzLDE4ODY4NTI0MTgsNDU4NjA1MzUxLC0xMjg1NzI4
-NjQ0LDQzODAwNTkyNF19
--->
