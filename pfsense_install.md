@@ -56,7 +56,7 @@ Using iso:
 
 First go to [pfsense](https://www.pfsense.org/download/) website and download the image from there.
 
-![Img1](https://photos.google.com/album/AF1QipMqzzp3eRMgYhEuOvoYK8fX8qBl8H5UXwv1YZbG/photo/AF1QipMOo5WPQ3lHcgspBLGncxh0xuDZFcgapD92BbVd)
+![enter image description here](https://photos.app.goo.gl/As1mECYUTTFcuqNx8)
 
 .
 .
@@ -97,7 +97,7 @@ $$
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk5NzQxOTE3MiwtMjM1NDA2NjE0LC0zNj
+eyJoaXN0b3J5IjpbMTQ1ODIxNDg1MiwtMjM1NDA2NjE0LC0zNj
 U5NDk4MDcsLTExMTc5NjM3NTMsNzM1NjU4NTk2LDc2NTIyMzAz
 MSwxNzM0MDcyMDUyLDExMTQzODEzNzYsMTUwOTE4MjQxMywtMT
 YwNDEzODEzLDE4ODY4NTI0MTgsNDU4NjA1MzUxLC0xMjg1NzI4
