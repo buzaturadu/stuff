@@ -56,8 +56,7 @@ Using iso:
 
 First go to [pfsense](https://www.pfsense.org/download/) website and download the image from there.
 
-![enter image description here](https://photos.app.goo.gl/As1mECYUTTFcuqNx8)
-
+enter image description here
 .
 .
 .
@@ -95,9 +94,8 @@ $$
 
 > You can find more information about **LaTeX** mathematical expressions [here](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
 
-
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ1ODIxNDg1MiwtMjM1NDA2NjE0LC0zNj
+eyJoaXN0b3J5IjpbMTY0NTc3NTU5NSwtMjM1NDA2NjE0LC0zNj
 U5NDk4MDcsLTExMTc5NjM3NTMsNzM1NjU4NTk2LDc2NTIyMzAz
 MSwxNzM0MDcyMDUyLDExMTQzODEzNzYsMTUwOTE4MjQxMywtMT
 YwNDEzODEzLDE4ODY4NTI0MTgsNDU4NjA1MzUxLC0xMjg1NzI4
