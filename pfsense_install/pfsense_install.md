@@ -39,17 +39,11 @@ In order to have good performance with the virtual router the VM should have eno
 
 - 4 CPUs
 - 8 GB RAM
-- 20 GB storage
+- 10 GB storage
 
-VM can be created using a downloaded img or Ubuntu can be installed from scratch 
+Ceate the VM with the next command
 
-Using img:
-
-	sudo virt-install --name pfsense --ram 8048 --disk path=./iso/bionic-server-cloudimg-amd64.img --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --network bridge=virbr1 --network bridge=virbr2 --graphics vnc --console pty,target_type=serial --boot hd
-
-Using Ubuntu 20.04 iso:
-
-	sudo virt-install --name pfsense --ram 8048 --disk path=./vmdisks/pfsense.qcow2,size=20 --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --network bridge=virbr1 --network bridge=virbr2 --graphics vnc --console pty,target_type=serial --cdrom '/home/buz/iso/ubuntu-20.04-server-amd64.iso
+	sudo virt-install --name pfsense --ram 8048 --disk path=./vmdisks/pfsense.qcow2,size=10 --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --network bridge=virbr1 --network bridge=virbr2 --graphics vnc --console pty,target_type=serial --cdrom '/pfSense-CE-2.4.5-RELEASE-amd64.iso'
 
 
 # Installing pfSense
@@ -102,13 +96,51 @@ Instalation complete
 
 ![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/10.png?raw=true)
 
+## pfSense Dashboard Login
+
+Log in using the following URL https://10.10.1.1 and default credentials
+ - Username: admin  
+ - Password: pfsense
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/11.png?raw=true)
+
+
+## pfSense Setup Wizard
+
+On step 1 and 2 just simply click Next. On third step set a Hostname and a domain if you have one and the Primary and Secondary DNS Server 8.8.4.4 or 8.8.8.8 and 1.1.1.1
+
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/12.png?raw=true)
+
+Step 4 perform the Timezone and NTP server configuration.
+
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/13.png?raw=true)
+
+Step 5 select the configuration of the WAN interface. PPPoE in our case.
+
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/14.png?raw=true)
+
+Step 6 configure the LAN interface
+
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/15.png?raw=true)
+
+
+Step 7 set up the admin password
+
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/16.png?raw=true)
+
+
+On step 8 check and on 9 reload the pfSense configuration and you are done
+
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/17.png?raw=true)
 
 
 
 
 
 
-.
+
+
+
+
 .
 .
 .
@@ -121,7 +153,9 @@ Instalation complete
 .
 .
 
+## SmartyPants
 
+SmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:
 
 |                |ASCII                          |HTML                         |
 |----------------|-------------------------------|-----------------------------|
@@ -130,4 +164,15 @@ Instalation complete
 |Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
 
 
+## KaTeX
+
+You can render LaTeX mathematical expressions using [KaTeX](https://khan.github.io/KaTeX/):
+
+The *Gamma function* satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
+
+$$
+\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
+$$
+
+> You can find more information about **LaTeX** mathematical expressions [here](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
 
