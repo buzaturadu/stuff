@@ -56,7 +56,7 @@ Using iso:
 
 First go to [pfsense](https://www.pfsense.org/download/) website and download the image from there.
 
-There are two types of synchronization and they can complement each other:
+# hhh 
 
 - The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
 	> To start syncing your workspace, just sign in with Google in the menu.
@@ -166,7 +166,8 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzY1MjIzMDMxLDE3MzQwNzIwNTIsMTExND
-M4MTM3NiwxNTA5MTgyNDEzLC0xNjA0MTM4MTMsMTg4Njg1MjQx
-OCw0NTg2MDUzNTEsLTEyODU3Mjg2NDQsNDM4MDA1OTI0XX0=
+eyJoaXN0b3J5IjpbNzM1NjU4NTk2LDc2NTIyMzAzMSwxNzM0MD
+cyMDUyLDExMTQzODEzNzYsMTUwOTE4MjQxMywtMTYwNDEzODEz
+LDE4ODY4NTI0MTgsNDU4NjA1MzUxLC0xMjg1NzI4NjQ0LDQzOD
+AwNTkyNF19
 -->
