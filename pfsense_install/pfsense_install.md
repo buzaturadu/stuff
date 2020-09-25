@@ -74,6 +74,39 @@ Select install
 
 ![4](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/4.png?raw=true)
 
+Select keyboard layout
+
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/5.png?raw=true)
+
+Select the Auto(UFS) option
+
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/6.png?raw=true)
+
+Select the No
+
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/7.png?raw=true)
+
+Press Enter to reboot the VM
+
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/8.png?raw=true)
+
+
+After rebooting, will ask if you need to configure VLANs. We do not have VLANs so hit n
+
+Next the system will try to detect the list of available network interfaces.
+The system will ask you to choose 1 interface as the external interface [WAN] and 1 for [LAN].  In our example we have em0 fo WAN and em1 for LAN
+
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/9.png?raw=true)
+
+Instalation complete
+
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/10.png?raw=true)
+
+
+
+
+
+
 
 .
 .
