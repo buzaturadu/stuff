@@ -1,4 +1,4 @@
-# Install and config pfSense for one-node infrastructure 
+# Install and config pfSense for one-node infrastructure and access it from anywhere with DDNS on Cloudflare
 
 ## One-node infrastructure
 
@@ -132,31 +132,30 @@ On step 8 check and on 9 reload the pfSense configuration and you are done
 
 ![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/17.png?raw=true)
 
+## Cloudflare DDNS
+Supposing you already have a domain and an account set up on Cloudflare log in and go to My Profile
 
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/18.png?raw=true)
 
+Select API Tokens and click on View on Global API key
 
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/19.png?raw=true)
 
+You should get something like this. Take care not to share the API key
+Cop
 
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/20.png?raw=true)
 
+## Set up pfSense DDNS
+Go to your pfSense dashboard and from the Service menu, select Dynamic DNS
 
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/21.png?raw=true)
 
+Click on add and then on Service Type select Cloudflare and then insert your hostname and your domain name
+
+![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/22.png?raw=true)
 
 .
 .
 .
-.
-.
-.
-.
-.
-.
-.
-.
-
-
-|                |ASCII                          |HTML                         |
-|----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
-|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
-|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
 
