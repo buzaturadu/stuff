@@ -75,7 +75,6 @@ Select install
 ![4](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/4.png?raw=true)
 
 
-
 .
 .
 .
