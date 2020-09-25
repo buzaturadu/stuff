@@ -20,7 +20,7 @@ Our machine is a Dell PowerEdge R420 with the following relevant specifications:
 - 8x 16GB ECC RAM
 - 2x 500GB SSD
 - 2x Gigabit NICs
-- 
+
 
 ## The hypervisor
 
@@ -55,6 +55,7 @@ Using iso:
 # Installing pfSense
 
 First go to [pfsense](https://www.pfsense.org/download/) website and download the image from there.
+
 
 # hhh 
 
@@ -97,7 +98,7 @@ $$
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwMzM0NDA3NiwtMTExNzk2Mzc1Myw3Mz
+eyJoaXN0b3J5IjpbLTM2NTk0OTgwNywtMTExNzk2Mzc1Myw3Mz
 U2NTg1OTYsNzY1MjIzMDMxLDE3MzQwNzIwNTIsMTExNDM4MTM3
 NiwxNTA5MTgyNDEzLC0xNjA0MTM4MTMsMTg4Njg1MjQxOCw0NT
 g2MDUzNTEsLTEyODU3Mjg2NDQsNDM4MDA1OTI0XX0=
