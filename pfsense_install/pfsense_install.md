@@ -69,9 +69,9 @@ Set up the network creating the bridges. Like we said earlier we need 2 networks
 	brctl addbr virbr0 && brctl addbr virbr1
 <br/>
 
-Add the inteface conected to ISP line to virbr0
+Add the inteface conected to ISP line to virbr0. In our case the interface name was eno1
 
-	brctl addif em0 virbr0
+	brctl addif eno1 virbr0
 	
 <br/>
 
