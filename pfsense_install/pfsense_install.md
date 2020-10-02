@@ -2,7 +2,7 @@
 
 ## One-node infrastructure
 
-Having a single, beefy server can be a problem sometimes. We needed a fleet of virtual servers for various applications and tests, and a router for all of them, but because this is a home setup, we only had a single physical machine for that. The only viable solution was to have a one-node infrastructure. 
+Having a single, beefy server can be a problem sometimes. We needed a fleet of virtual servers for various applications and tests and the posibility to access each server separatly from anywhere. In order to do this we need a router for all of them, but because this is a home setup and we only have a single physical machine for thit, the only viable solution is to have a virtual router and that will be pfSense
 
 
 ## The solution
