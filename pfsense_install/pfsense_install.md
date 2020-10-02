@@ -69,14 +69,21 @@ Set up the network creating the bridges. Like we said earlier we need 2 networks
 	brctl addbr virbr0 && brctl addbr virbr1
 <br/>
 
+Add the inteface conected to ISP line to virbr0
+
+	brctl addif em0 virbr0
+	
+<br/>
+
 To have your things a little in order let's create a folder for your VM disk's called vmdisks
 	
 	mkdir vmdisks
 <br/>
-If you are not directly at the console of the server but connected through ssh connection make sure you use -X argument when connecting so you can directly see VM console.
+If you are not directly at the console of the server but connected through ssh connection make sure you use -X argument when connecting so you can directly see VM console. If this does not work for you then you will have to connect with a VNC viewer to VM's console
 
 	ssh -X user@host
 <br/>
+
 Create the VM named pfsense with next comand
 
 	sudo virt-install --name pfsense --ram 8048 --disk path=./vmdisks/pfsense.qcow2,size=10 --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --network bridge=virbr1 --graphics vnc --console pty,target_type=serial --cdrom 'pfSense-CE-2.4.5-RELEASE-amd64.iso'
