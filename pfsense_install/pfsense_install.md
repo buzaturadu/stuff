@@ -28,9 +28,9 @@ There are various hypervisors capable of doing what we needed, like Proxmox, ovi
 
 ## Networking
 
-Our ISP requires PPPoE authentication, and at each reconnect, our public IP changes. We needed a router for the VMs and for the office, but we first need to take care of the network virtualization part. We created networks, called VM Network, Management Network, and WAN. Might be a bit confusing, but each network has a purpose:
+Our ISP requires PPPoE authentication, and at each reconnect, our public IP changes. We needed a router for the VMs and for the office, but we first need to take care of the network virtualization part. We created networks, called VM Network and WAN.
+
 - VM Network - this is the equivalent of LAN. All VMs will be connected to this network.
-- Management Network - all management interfaces will be connected to this network, like IDRAC, ILO, Access Points, Switch etc
 - WAN - our ISP
 
 
@@ -64,9 +64,9 @@ Unzip the archive you just download either way
 
 	apt install -y qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager
 <br/>
-Set up the network creating the bridges. Like we said earlier we need 3 networks so we have to create 3 network bridges on the server
+Set up the network creating the bridges. Like we said earlier we need 2 networks so we have to create 2 network bridges on the server
 
-	brctl addbr virbr0 && brctl addbr virbr1 && brctl addbr virbr2
+	brctl addbr virbr0 && brctl addbr virbr1
 <br/>
 
 To have your things a little in order let's create a folder for your VM disk's called vmdisks
@@ -79,8 +79,8 @@ If you are not directly at the console of the server but connected through ssh c
 <br/>
 Create the VM named pfsense with next comand
 
-	sudo virt-install --name pfsense --ram 8048 --disk path=./vmdisks/pfsense.qcow2,size=10 --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --network bridge=virbr1 --network bridge=virbr2 --graphics vnc --console pty,target_type=serial --cdrom 'pfSense-CE-2.4.5-RELEASE-amd64.iso'
-	exit
+	sudo virt-install --name pfsense --ram 8048 --disk path=./vmdisks/pfsense.qcow2,size=10 --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --network bridge=virbr1 --graphics vnc --console pty,target_type=serial --cdrom 'pfSense-CE-2.4.5-RELEASE-amd64.iso'
+
 <br/>
 The VM it's created and a welcome screen should appear. You can hit Enter
 
@@ -181,7 +181,4 @@ Click on add and then on Service Type select Cloudflare and then insert your hos
 
 ![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/22.png?raw=true)
 
-.
-.
-.
 
