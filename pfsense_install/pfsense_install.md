@@ -2,15 +2,16 @@
 
 ## One-node infrastructure
 
-Having a single, beefy server can be a problem sometimes. We needed a fleet of virtual servers for various applications and tests, and a router for all of them, but because this is a home setup, we only had a single physical machine for that. The only viable solution was to have a one-node infrastructure.
+Having a single, beefy server can be a problem sometimes. We needed a fleet of virtual servers for various applications and tests, and a router for all of them, but because this is a home setup, we only had a single physical machine for that. The only viable solution was to have a one-node infrastructure. 
+
 
 ## The solution
 
 We came up with a solution that uses various technologies from the virtualization world. A few
 key points must be met:
 - Server
-- Two or more physical NICs
 - Capable hypervisor
+- pfSense in VM
  
 ## The server
 
@@ -20,7 +21,6 @@ Our machine is a Dell PowerEdge R420 with the following relevant specifications:
 - 8x 16GB ECC RAM
 - 2x 500GB SSD
 - 2x Gigabit NICs
-
 
 ## The hypervisor
 
@@ -33,7 +33,8 @@ Our ISP requires PPPoE authentication, and at each reconnect, our public IP chan
 - Management Network - all management interfaces will be connected to this network, like IDRAC, ILO, Access Points, Switch etc
 - WAN - our ISP
 
-## VM specs for pfSense
+
+## Prerequisites before installing pfSense
 
 In order to have good performance with the virtual router the VM should have enough resources. We chose next specs
 
@@ -41,22 +42,47 @@ In order to have good performance with the virtual router the VM should have eno
 - 8 GB RAM
 - 10 GB storage
 
-Ceate the VM with the next command
+##### First make sure you have root access
+	sudo su -
 
-	sudo virt-install --name pfsense --ram 8048 --disk path=./vmdisks/pfsense.qcow2,size=10 --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --network bridge=virbr1 --network bridge=virbr2 --graphics vnc --console pty,target_type=serial --cdrom '/pfSense-CE-2.4.5-RELEASE-amd64.iso'
+Now go to [pfsense](https://www.pfsense.org/download/) website and download the image from there. Select the Architecture: AMD64(64-bit) and Installer: CD image (ISO) Installer
+ or simply download it with next command
 
+	wget https://nyifiles.pfsense.org/mirror/downloads/pfSense-CE-2.4.5-RELEASE-amd64.iso.gz
 
-# Installing pfSense
-
-First go to [pfsense](https://www.pfsense.org/download/) website and download the image from there and unzip ip
-
-	unzip pfSense-CE-2.4.5-RELEASE-amd64.iso.gz
 
 ![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/1.png?raw=true)
+<br/>
+Unzip the archive you just download either way
 
-Boot the VM using pfSense installation iso
+	gunzip pfSense-CE-2.4.5-RELEASE-amd64.iso.gz
+	
+<br/>
 
-On welcome screen hit Enter
+#### Install KVM and bridge-utils to set up the VMs and network
+
+
+	apt install -y qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager
+<br/>
+Set up the network creating the bridges. Like we said earlier we need 3 networks so we have to create 3 network bridges.
+
+	brctl addbr virbr0 && brctl addbr virbr1 && brctl addbr virbr2
+<br/>
+
+To have you things a little in order let's create a folder for your VM disk called vmdisks
+	
+	mkdir vmdisks
+<br/>
+If you are not directly at the console of the server but connected through ssh connection make sure you use -X argument when connecting so you can directly see VM console.
+
+	ssh -X user@host
+<br/>
+Create the VM named pfsense with next comand
+
+	sudo virt-install --name pfsense --ram 8048 --disk path=./vmdisks/pfsense.qcow2,size=10 --vcpus 4 --os-type linux --os-variant generic --network bridge=virbr0 --network bridge=virbr1 --network bridge=virbr2 --graphics vnc --console pty,target_type=serial --cdrom 'pfSense-CE-2.4.5-RELEASE-amd64.iso'
+	exit
+<br/>
+The VM it's created and a welcome screen should appear. You can hit Enter
 
 ![2](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/2.png?raw=true)
 
@@ -88,7 +114,7 @@ Press Enter to reboot the VM
 After rebooting, will ask if you need to configure VLANs. We do not have VLANs so hit n
 
 Next the system will try to detect the list of available network interfaces.
-The system will ask you to choose 1 interface as the external interface [WAN] and 1 for [LAN].  In our example we have em0 fo WAN and em1 for LAN
+The system will ask you to choose 1 interface as the external interface [WAN] and 1 for [LAN].  In our example we have em0 for WAN and em1 for LAN
 
 ![enter image description here](https://github.com/buzaturadu/stuff/blob/master/pfsense_install/images/9.png?raw=true)
 
