@@ -64,12 +64,12 @@ Unzip the archive you just download either way
 
 	apt install -y qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager
 <br/>
-Set up the network creating the bridges. Like we said earlier we need 3 networks so we have to create 3 network bridges.
+Set up the network creating the bridges. Like we said earlier we need 3 networks so we have to create 3 network bridges on the server
 
 	brctl addbr virbr0 && brctl addbr virbr1 && brctl addbr virbr2
 <br/>
 
-To have you things a little in order let's create a folder for your VM disk called vmdisks
+To have your things a little in order let's create a folder for your VM disk's called vmdisks
 	
 	mkdir vmdisks
 <br/>
