@@ -1,1 +1,0 @@
-virt-install --name ubuntu18 --ram 2048 --disk path=./vmdisks/ubuntu18.qcow2,size=10 --vcpus 1 --os-type linux --os-variant generic --network bridge=virbr0 --graphics vnc --console pty,target_type=serial --cdrom '/home/buz/iso/ubuntu-16.04.6-server-amd64.iso
