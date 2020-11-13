@@ -17,8 +17,10 @@ function transformToAttachment() {
         var extention = fileName.substring(fileName.indexOf('.') + 1, fileName.length);
 
         arrayOfAttachments.push({
+            content: listOfPaths,
             fileName: fileName,
-            extention: extention
+            extention: extention,
+            disposition: "attachment"
         });
     }
 
